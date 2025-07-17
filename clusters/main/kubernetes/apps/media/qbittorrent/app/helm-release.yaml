@@ -20,8 +20,7 @@ spec:
     mode: warn   
   install:
     createNamespace: true
-#    remediation:
-#      retries: 3
+
   upgrade:
     cleanupOnFail: true
     remediation:
@@ -65,19 +64,17 @@ spec:
     #ingress:
     #  main:
     #    enabled: true
-    #    ingressClassName: ""  
+    #    ingressClassName: external  
+    #    integrations:
+    #      certManager:
+    #        enabled: true
+    #        certificateIssuer: domain-0-le-prod
     #    hosts:
     #      - host: qbittorrent.${DOMAIN_0}
     #        paths:
     #          - path: /
     #            pathType: Prefix        
-    #    integrations:
-    #      traefik:
-    #        enabled: true
-    #      certManager:
-    #        enabled: true
-    #        certificateIssuer: domain-0-le-prod
-
+    
     persistence:
       config:
         enabled: true
