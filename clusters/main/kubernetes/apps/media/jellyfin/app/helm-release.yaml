@@ -41,12 +41,7 @@ spec:
         accessKey: "${S3_ACCESKEY}"
         secretKey: "${S3_SECRETKEY}"
         encrKey: "${S3_ENCRKEY}"    
-        
-    #service:
-    #  main:
-    #    type: LoadBalancer
-    #    loadBalancerIP: ${IP_JELLYFIN}  
-        
+
     ingress:
       main:
         enabled: true
