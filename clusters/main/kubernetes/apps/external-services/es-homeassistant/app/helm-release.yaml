@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: external-service
-      version: 15.6.2
+      version: 16.1.0
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -18,7 +18,6 @@ spec:
   timeout: 20m
   maxHistory: 3
   install:
-    createNamespace: true
     remediation:
       retries: 3
   upgrade:
@@ -30,13 +29,15 @@ spec:
   values:
     service:
       main:
-        type: ExternalIP
+        enabled: true
         externalIP: ${HOMEASSISTANT_IP}
         useSlice: false
         ports:
           main:
-            protocol: http
+            enabled: true
             port: ${HOMEASSISTANT_PORT}
+            protocol: http
+        type: ExternalIP
     ingress:
       main:
         enabled: true
