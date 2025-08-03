@@ -39,7 +39,7 @@ spec:
     hubble:
       enabled: false
     cluster:
-      name: ${CLUSTERNAME}
+      name: main #${CLUSTERNAME}
       id: 1
     ipv4NativeRoutingCIDR: ${PODNET}
     securityContext:
@@ -77,4 +77,5 @@ spec:
     localRedirectPolicy: true
     operator:
       rollOutPods: true
+      replicas: 1
     rollOutCiliumPods: true
