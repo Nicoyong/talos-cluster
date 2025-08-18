@@ -45,12 +45,12 @@ spec:
       main:
         enabled: true
         type: LoadBalancer
-        loadBalancerIP: ${IP_QBITTORRENT}
+        loadBalancerIP: ${QBITTORRENT_IP}
   
       torrent:
         enabled: true
         type: LoadBalancer
-        loadBalancerIP: ${IP_QBITTORRENT}
+        loadBalancerIP: ${QBITTORRENT_IP}
         ports:
           torrent:
             enabled: true
