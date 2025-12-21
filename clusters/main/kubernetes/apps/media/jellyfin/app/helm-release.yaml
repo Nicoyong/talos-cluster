@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: jellyfin
-      version: 21.12.9
+      version: 22.2.7
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -58,14 +58,15 @@ spec:
        
     persistence:
       config:
-        volsync:
-          - name: config
-            type: restic
-            credentials: minio
-            dest:               #VolSync Destination (Restore)
-              enabled: true
-            src:                #VolSync Source (Backup)
-              enabled: true
+        enabled: true
+#        volsync:
+#          - name: config
+#            type: restic
+#            credentials: minio
+#            dest:               #VolSync Destination (Restore)
+#              enabled: true
+#            src:                #VolSync Source (Backup)
+#              enabled: true
 
       multimedia:
         enabled: true
@@ -74,3 +75,13 @@ spec:
         path: ${JELLYFIN_NFS_PATH}
         mountPath: /data/multimedia
     
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                JELLYFIN_DATA_DIR: /config
+                JELLYFIN_CONFIG_DIR: /config/config
+                JELLYFIN_CACHE_DIR: /cache
+                JELLYFIN_LOG_DIR: /logs    
