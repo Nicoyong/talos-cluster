@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: jellyfin
-      version: 22.2.7
+      version: 22.2.8
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -59,14 +59,17 @@ spec:
     persistence:
       config:
         enabled: true
-#        volsync:
-#          - name: config
-#            type: restic
-#            credentials: minio
-#            dest:               #VolSync Destination (Restore)
-#              enabled: true
-#            src:                #VolSync Source (Backup)
-#              enabled: true
+        volsync:
+          - name: config
+            type: restic
+            credentials: minio
+            dest:               #VolSync Destination (Restore)
+              enabled: true
+            src:                #VolSync Source (Backup)
+              enabled: true
+        
+      data:
+        enabled: true
 
       multimedia:
         enabled: true
