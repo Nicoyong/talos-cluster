@@ -70,6 +70,14 @@ spec:
         
       data:
         enabled: true
+        volsync:
+          - name: data
+            type: restic
+            credentials: minio
+            src:
+              enabled: true
+            dest:
+              enabled: true
 
       multimedia:
         enabled: true
